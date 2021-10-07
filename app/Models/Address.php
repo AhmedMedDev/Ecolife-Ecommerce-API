@@ -15,11 +15,12 @@ class Address extends Model
      */
     protected $fillable = [
         'compony_name',
-        'country',
-        'street',
-        'apartment',
-        'city',
-        'postcode',
+        'governorate',
+        'block_number',
+        'street_address',
+        'avenue',
+        'building_number',
+        'floor',
         'phone',
     ];
 
