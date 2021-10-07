@@ -22,5 +22,5 @@ Route::group([
 
     Route::apiResource('carts', 'CartController');
 
-    
+    Route::post('placeOrder', 'PlaceOrder@index');
 });

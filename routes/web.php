@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\DB;
 */
 Route::get('/', function () {
 
-    return DB::table('user_purchases')->where('user_id', 2)->where('product_id', 36)->count();
+    return view('welcome');
 });
 
 

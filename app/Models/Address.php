@@ -22,6 +22,7 @@ class Address extends Model
         'building_number',
         'floor',
         'phone',
+        'additional_info',
     ];
 
      /**
