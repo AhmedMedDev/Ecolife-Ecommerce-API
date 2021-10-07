@@ -25,8 +25,6 @@ class UpdateCartRequest extends FormRequest
     {
         return [
             'quantity'      => 'required|integer',
-            'size_id'       => 'exists:App\Models\Size,id',
-            'color_id'      => 'exists:App\Models\Color,id',
         ];
     }
 }

@@ -25,10 +25,8 @@ class StoreCartRequest extends FormRequest
     public function rules()
     {
         return [
-            'product_id'    => 'required|exists:App\Models\Product,id',
+            'product_id'    => 'required|exists:App\Models\Product,id|unique:carts',
             'quantity'      => 'integer',
-            'size_id'       => 'required|exists:App\Models\Size,id',
-            'color_id'      => 'required|exists:App\Models\Color,id',
         ];
     }
 }
