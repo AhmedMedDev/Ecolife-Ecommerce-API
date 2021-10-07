@@ -16,14 +16,14 @@ Trait OrderProductTrait
      *  for Auth user
      * 
      */
-    public function store($request) // Secured Endpoint
+    public function storeOrderProduct($request) // Secured Endpoint
     {
         $orders = DB::table('carts')
         ->where('user_id', Auth::user()->id)
         ->select('product_id','quantity')
         ->get();
 
-        foreach($orders as $order) $order->order_id = $request->order_id;
+        foreach($orders as $order) $order->order_id = $request['order_id'];
 
         $orderProduct = DB::table('order_products')->insert($orders->toArray());
 

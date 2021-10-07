@@ -31,4 +31,3 @@ Route::get('user/verify/{verify_code}','Auth\VerificationController@verify')->na
 Route::get('login/github', 'Auth\LoginWithX@redirectToProvider');
 
 Route::get('login/github/callback', 'Auth\LoginWithX@handleProviderCallback');
-

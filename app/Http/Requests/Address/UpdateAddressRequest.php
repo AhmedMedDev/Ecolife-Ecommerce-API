@@ -24,13 +24,15 @@ class UpdateAddressRequest extends FormRequest
     public function rules()
     {
         return [
-            'compony_name'  => 'string|regex:/^[a-zA-Z ]+$/',
-            'country'       => 'string|regex:/^[a-zA-Z ]+$/',
-            'street'        => 'string|regex:/^[a-zA-Z ]+$/',
-            'apartment'     => 'string',
-            'city'          => 'string|regex:/^[a-zA-Z ]+$/',
-            'postcode'      => 'string',
-            'phone'         => 'string|numeric',
+            'compony_name'    => 'string',
+            'governorate'     => 'string',
+            'block_number'    => 'numeric',
+            'street_address'  => 'string',
+            'avenue'          => 'string',
+            'building_number' => 'numeric',
+            'floor'           => 'string',
+            'phone'           => 'string|numeric',
+            'additional_info' => 'string',
         ];
     }
 }

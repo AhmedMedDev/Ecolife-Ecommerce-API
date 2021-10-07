@@ -15,7 +15,7 @@ Trait AddressTrait
      *  for Auth user
      * 
      */
-    public function store($request) // Secured Endpoint
+    public function storeAddress($request) // Secured Endpoint
     {
         $address = Address::create( $request );
 

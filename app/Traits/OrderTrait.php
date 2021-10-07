@@ -17,7 +17,7 @@ Trait OrderTrait
      *  for Auth user
      * 
      */
-    public function store($request) // Secured Endpoint
+    public function storeOrder($request) // Secured Endpoint
     {
         $user_id = Auth::user()->id;
 

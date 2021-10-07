@@ -31,6 +31,21 @@ Route::group([
     Route::post('preResetPassword', 'Auth\ResetPassController@preResetPassword');
     Route::post('confirmPIN', 'Auth\ResetPassController@confirmPIN');
     Route::post('resetPassword', 'Auth\ResetPassController@resetPassword');
+    Route::post('placeOrder', 'Api/CheckOutController@index');
 
+});
+
+Route::group([
+
+    'middleware' => [
+        'api',
+        'auth:api',
+    ],
+    'namespace' => 'Api',
+
+], function () {
+
+    Route::post('placeOrder', 'CheckOutController@store');
+    
 });
 

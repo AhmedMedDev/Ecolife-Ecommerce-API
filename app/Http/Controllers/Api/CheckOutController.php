@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Http\Requests\Address\AddressRequest;
 use App\Traits\AddressTrait;
+use App\Traits\ImgUpload;
 use App\Traits\OrderProductTrait;
 use App\Traits\OrderTrait;
-use Illuminate\Http\Request;
 
-class PlaceOrder extends Controller
+class CheckOutController extends Controller
 {
     use AddressTrait;
     use OrderTrait;
@@ -23,15 +24,15 @@ class PlaceOrder extends Controller
      * for admin only 
      * 
      */
-    public function index(AddressRequest $request) // Secured Endpoint
+    public function store(AddressRequest $request) // Secured Endpoint
     {
         $request = $request->validated();
 
-        $request['address_id']  = $this->AddressTrait->store($request)->original['address']['id'];
+        $request['address_id']  = $this->storeAddress($request)->original['payload']['id'];
 
-        $request['order_id']    = $this->OrderTrait->store($request)->original['order']['id'];
+        $request['order_id']    = $this->storeOrder($request)->original['payload']['id'];
 
-        $this->OrderProductTrait->store($request);
+        $this->storeOrderProduct($request);
 
         return response()->json([
             'success' => true,
