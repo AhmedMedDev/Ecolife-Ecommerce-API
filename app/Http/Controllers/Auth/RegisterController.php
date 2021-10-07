@@ -29,11 +29,11 @@ class RegisterController extends Controller
     {
         $request = $request->validated();
 
-        if (isset($request['img']))
+        if (isset($request['avatar']))
         {
-            $fileName = $this->saveImage($request['img'], 'uploads/users/img');
+            $fileName = $this->saveImage($request['avatar'], 'uploads/users/avatar');
 
-            $request['img'] = "uploads/users/img/$fileName";
+            $request['avatar'] = "uploads/users/avatar/$fileName";
         }
 
         $request['verify_code'] = Str::random(50);
