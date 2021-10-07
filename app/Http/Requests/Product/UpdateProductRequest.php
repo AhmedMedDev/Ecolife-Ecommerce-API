@@ -24,17 +24,16 @@ class UpdateProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'pro_name'         => 'string|regex:/^[a-zA-Z ]+$/',
-            'pro_des'          => 'string',
-            'price'            => 'between:0,99.99',
-            'mainImage'        => 'image',
-            'category_id'      => 'exists:App\Models\Category,id',
-            'pro_rate'         => 'integer|digits_between:1,5',
-            'pro_gender'       => 'in:M,F,B',
-            'favHeader'        => 'boolean',
-            'trending'         => 'boolean',
-            'defaultSize_id'   => 'exists:App\Models\Size,id',
-            'defaultColor_id'  => 'exists:App\Models\Color,id',
+            'pro_name'    => 'string',
+            'pro_des'     => 'string',
+            'pro_details' => 'string',
+            'price'       => 'between:0,99.99',
+            'images'      => 'array',
+            'rate'        => 'integer|digits_between:1,5',
+            'offer'       => 'integer|digits_between:1,100',
+            'new'         => 'boolean',
+            'status'      => 'boolean',
+            'category_id' => 'exists:App\Models\Category,id',
         ];
     }
 }

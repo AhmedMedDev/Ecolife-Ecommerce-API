@@ -24,17 +24,16 @@ class StoreProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'pro_name'         => 'required|string|regex:/^[a-zA-Z ]+$/',
-            'pro_des'          => 'required|string',
-            'price'            => 'required|between:0,99.99',
-            'mainImage'        => 'required|image',
-            'category_id'      => 'required|exists:App\Models\Category,id',
-            'pro_rate'         => 'required|integer|digits_between:1,5',
-            'pro_gender'       => 'required|in:M,F,B',
-            'favHeader'        => 'required|boolean',
-            'trending'         => 'required|boolean',
-            'defaultSize_id'   => 'required|exists:App\Models\Size,id',
-            'defaultColor_id'  => 'required|exists:App\Models\Color,id',
+            'pro_name'    => 'required|string',
+            'pro_des'     => 'required|string',
+            'pro_details' => 'required|string',
+            'price'       => 'required|between:0,99.99',
+            'images'      => 'required|array',
+            'rate'        => 'required|integer|digits_between:1,5',
+            'offer'       => 'required|integer|digits_between:1,100',
+            'new'         => 'required|boolean',
+            'status'      => 'required|boolean',
+            'category_id' => 'required|exists:App\Models\Category,id',
         ];
     }
 }
