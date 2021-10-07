@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Order;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -17,10 +18,11 @@ use Illuminate\Support\Facades\DB;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    return view('welcome');
+
+    return DB::table('user_purchases')->where('user_id', 2)->where('product_id', 36)->count();
 });
+
 
 // Route::view('/verifyEmail', 'mails.verifyEmail');
 
@@ -29,3 +31,4 @@ Route::get('user/verify/{verify_code}','Auth\VerificationController@verify')->na
 Route::get('login/github', 'Auth\LoginWithX@redirectToProvider');
 
 Route::get('login/github/callback', 'Auth\LoginWithX@handleProviderCallback');
+

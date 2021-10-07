@@ -1,5 +1,5 @@
 
-![Reference Temp](https://github.com/dedoa82/Around-Shop-Api/blob/master/Reference.png?raw=true)
+<!-- ![Reference Temp](https://github.com/dedoa82/Around-Shop-Api/blob/master/Reference.png?raw=true) -->
 
 
 ## Installation

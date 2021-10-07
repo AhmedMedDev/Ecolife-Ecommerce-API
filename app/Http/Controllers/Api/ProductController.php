@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Traits\ImgUpload;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
@@ -48,13 +49,12 @@ class ProductController extends Controller
      */
     public function index(Request $request) // Secured Endpoint
     {
-        // $products = Cache::rememberForever('product_box', 
-        // fn() => DB::table('product_box')->orderByDesc($orderby));
+        $products = Cache::rememberForever('product_box', 
+        fn() => DB::table('product_box')->get());
         
         return response()->json([
             'success' => true,
-            'payload' => DB::table('product_box')
-                    ->orderByDesc($request->orderBy)->get()
+            'payload' => $products
         ]);
     }
 
@@ -71,9 +71,9 @@ class ProductController extends Controller
     {
         $request = $request->validated();
 
-        $fileName = $this->saveImage($request['mainImage'], 'uploads/products/mainImg');
+        // $fileName = $this->saveImage($request['mainImage'], 'uploads/products/mainImg');
 
-        $request['mainImage'] = "uploads/products/mainImg/$fileName";
+        // $request['mainImage'] = "uploads/products/mainImg/$fileName";
 
         $product = Product::create( $request );
 
@@ -97,8 +97,8 @@ class ProductController extends Controller
         return response()->json([
             'success' => true,
             'payload' => [
-                'product'           => DB::table('product_box')->where('product_id', $product->id),
-                'product_reviews'   => DB::table('review_box')->where('product_id', $product->id),
+                'product'           => DB::table('product_box')->where('pro_id', $product->id)->get(),
+                'product_reviews'   => DB::table('review_box')->where('product_id', $product->id)->get()
             ]
         ]);
     }
@@ -117,14 +117,14 @@ class ProductController extends Controller
     {
         $request = $request->validated();
 
-        if (isset($request['mainImage']))
-        {
-            \File::delete(public_path($product->mainImage));
+        // if (isset($request['mainImage']))
+        // {
+        //     \File::delete(public_path($product->mainImage));
 
-            $fileName = $this->saveImage($request['mainImage'], 'uploads/products/mainImg');
+        //     $fileName = $this->saveImage($request['mainImage'], 'uploads/products/mainImg');
 
-            $request['mainImage'] = "uploads/products/mainImg/$fileName";
-        }
+        //     $request['mainImage'] = "uploads/products/mainImg/$fileName";
+        // }
 
         $product = $product->update( $request );
 

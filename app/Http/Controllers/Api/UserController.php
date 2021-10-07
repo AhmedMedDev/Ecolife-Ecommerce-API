@@ -34,7 +34,7 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('admin', ['except' => ['cart','favorite','show','update','changePassword','destroy']]);
+        $this->middleware('admin', ['except' => ['cart','favorite','purchases','show','update','changePassword','destroy']]);
     }
 
     /**
@@ -165,10 +165,7 @@ class UserController extends Controller
     {
         Gate::authorize('cart',$user);
 
-        $usercart = DB::table('products')
-        ->join('carts','products.id','carts.product_id')
-        ->where('carts.user_id',$user->id)
-        ->get();
+        $usercart = DB::table('cart_box')->get();
 
         return response()->json([
             'success' => true, 
@@ -218,6 +215,28 @@ class UserController extends Controller
         return response()->json([
             'success' => true,
             'payload' => $userorders
+        ]);
+    }
+
+    /**
+     * Get User's Favorite
+     *
+     * @param  User $user
+     * @return \Illuminate\Http\Response
+     * 
+     * Just For auth user
+     */
+    public function purchases(User $user) // Secured Endpoint
+    {
+        // Gate::authorize('orders',$user);
+
+        $userpurchases = DB::table('user_purchases')
+        ->where('user_id',$user->id)
+        ->get();
+
+        return response()->json([
+            'success' => true,
+            'payload' => $userpurchases
         ]);
     }
 

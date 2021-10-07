@@ -60,14 +60,11 @@ class CartController extends Controller
         $cart = Cart::create( $request );
 
         // For Client : Redux
-        $product = DB::table('product_box')
-        ->where('pro_id', $cart->product_id)->get();
-        foreach($product[0] as $prop => $value ) 
-        $cart->$prop = $value;
+        $reduxCart = DB::table('cart_box')->where('cart_id',$cart->id)->get();
 
         return response()->json([
             'success' => true,
-            'payload' => $cart
+            'payload' => $reduxCart
         ]);
     }
 

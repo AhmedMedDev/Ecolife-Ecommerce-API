@@ -46,5 +46,9 @@ Route::group([
 
     Route::get('users/{user}/orders', 'UserController@orders');
 
+    //User's purchases
+
+    Route::get('users/{user}/purchases', 'UserController@purchases');
+
     
 });
