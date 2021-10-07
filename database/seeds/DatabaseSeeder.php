@@ -26,20 +26,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(Category::class, 10)->create();
-        factory(Product::class, 15)->create();
-        // factory(ProductImage::class, 50)->create();
         // factory(User::class, 50)->create();
-        // factory(Review::class, 50)->create();
-        // factory(Color::class, 50)->create();
-        // factory(Size::class, 50)->create();
-        // factory(Cart::class, 50)->create();
-        // factory(ProductColor::class, 50)->create();
-        // factory(ProductSize::class, 50)->create();
-        // factory(Offer::class, 50)->create();
-        // factory(Address::class, 50)->create();
-        // factory(Favorite::class, 50)->create();
-        // factory(Order::class, 50)->create();
-        // factory(OrderProduct::class, 50)->create();
+        // factory(Category::class, 40)->create();
+        // factory(Product::class, 30)->create();
+        // factory(Address::class, 30)->create();
+        factory(Order::class, 30)->create();
+        factory(Review::class, 30)->create();
+        factory(Cart::class, 30)->create();
+        factory(OrderProduct::class, 30)->create();
     }
 }

@@ -33,8 +33,7 @@ use Illuminate\Support\Str;
 
 $factory->define(User::class, function (Faker $faker) {
     return [
-        'Fname' => $faker->name,
-        'Lname' => $faker->name,
+        'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
@@ -65,98 +64,51 @@ $factory->define(Product::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(ProductImage::class, function (Faker $faker) {
-    return [
-        'pro_img'   => $faker->imageUrl(283,241),
-        'product_id'   => $faker->numberBetween(1,50),
-    ];
-});
-
 $factory->define(Review::class, function (Faker $faker) {
     return [
         're_des'        => $faker->paragraph,
         're_rate'       => $faker->numberBetween(1,5),
-        'product_id'    => $faker->numberBetween(1,50),
-        'user_id'       => $faker->numberBetween(1,50),
+        'product_id'    => $faker->numberBetween(1,20),
+        'user_id'       => $faker->numberBetween(1,30),
     ];
 });
 
-$factory->define(Color::class, function (Faker $faker) {
-    return [
-        'pro_color' => $faker->hexcolor,
-    ];
-});
-
-$factory->define(Size::class, function (Faker $faker) {
-    return [
-        'pro_size'  => $faker->numberBetween(32,45),
-    ];
-});
 
 $factory->define(Cart::class, function (Faker $faker) {
     return [
-        'product_id'    => $faker->numberBetween(1,50),
-        'user_id'       => $faker->numberBetween(1,50),
-        'quantity'      => $faker->randomDigit,
-        'size_id'       => $faker->numberBetween(1,50),
-        'color_id'      => $faker->numberBetween(1,50),
+        'product_id'    => $faker->numberBetween(1,20),
+        'user_id'       => $faker->numberBetween(1,30),
+        'quantity'      => $faker->numberBetween(1,10),
     ];
 });
 
-$factory->define(ProductColor::class, function (Faker $faker) {
-    return [
-        'product_id'    => $faker->numberBetween(1,50),
-        'color_id'      => $faker->numberBetween(1,50),
-    ];
-});
-
-$factory->define(ProductSize::class, function (Faker $faker) {
-    return [
-        'product_id'    => $faker->numberBetween(1,50),
-        'size_id'      => $faker->numberBetween(1,50),
-    ];
-});
-
-$factory->define(Offer::class, function (Faker $faker) {
-    return [
-        'product_id'    => $faker->numberBetween(1,50),
-        'percentage'      => $faker->numberBetween(30,100),
-    ];
-});
 
 $factory->define(Address::class, function (Faker $faker) {
     return [
-        'compony_name'  => $faker->company,
-        'country'       => $faker->country,
-        'street'        => $faker->streetName,
-        'apartment'     => $faker->buildingNumber,
-        'city'          => $faker->city,
-        'postcode'      => $faker->postcode,
-        'phone'         => $faker->phoneNumber,
-    ];
-});
-
-$factory->define(Favorite::class, function (Faker $faker) {
-    return [
-        'product_id' => $faker->numberBetween(1,50),
-        'user_id'    => $faker->numberBetween(1,50),
+        'compony_name'          => $faker->company,
+        'governorate'           => $faker->country,
+        'block_number'          => $faker->buildingNumber,
+        'street_address'        => $faker->streetName,
+        'avenue'                => $faker->city,
+        'building_number'       => $faker->buildingNumber,
+        'floor'                 => $faker->city,
+        'phone'                 => $faker->phoneNumber,
     ];
 });
 
 $factory->define(Order::class, function (Faker $faker) {
     return [
-        'user_id'           => $faker->numberBetween(1,50),
+        'user_id'           => $faker->numberBetween(1,30),
         'date'              => $faker->date,
-        'payment_method'    => $faker->creditCardType,
         'total_price'       => $faker->numberBetween(50,200),
-        'address_id'        => $faker->numberBetween(1,50),
+        'address_id'        => $faker->numberBetween(1,20),
     ];
 });
 
 $factory->define(OrderProduct::class, function (Faker $faker) {
     return [
-        'product_id' => $faker->numberBetween(1,50),
+        'product_id' => $faker->numberBetween(1,30),
         'quantity'   => $faker->randomDigit,
-        'order_id'   => $faker->numberBetween(1,50),
+        'order_id'   => $faker->numberBetween(1,30),
     ];
 });
