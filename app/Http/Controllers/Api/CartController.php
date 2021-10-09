@@ -126,4 +126,24 @@ class CartController extends Controller
             'success' => true,
         ]);
     }
+
+    /** 
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     * 
+     * for specific user, who created this recored
+     * 
+     */
+    public function destroyAll() // Secured Endpoint
+    {
+        $cart = DB::table('carts')
+        ->where('user_id', Auth::user()->id)->delete();
+
+        if ($cart) return response()->json([
+            'success' => true,
+        ]);
+    }
+
 }

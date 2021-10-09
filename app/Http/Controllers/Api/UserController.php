@@ -165,7 +165,7 @@ class UserController extends Controller
     {
         Gate::authorize('cart',$user);
 
-        $usercart = DB::table('cart_box')->get();
+        $usercart = DB::table('cart_box')->where('user_id', Auth::user()->id)->get();
 
         return response()->json([
             'success' => true, 
@@ -174,30 +174,7 @@ class UserController extends Controller
     }
 
     /**
-     * Get User's Favorite
-     *
-     * @param  User $user
-     * @return \Illuminate\Http\Response
-     * 
-     * Just For auth user
-     */
-    public function favorite(User $user) // Secured Endpoint
-    {
-        Gate::authorize('favorite',$user);
-
-        $userfavorite = DB::table('products')
-        ->join('favorites','products.id','favorites.product_id')
-        ->where('favorites.user_id',$user->id)
-        ->get();
-
-        return response()->json([
-            'success' => true,
-            'payload' => $userfavorite
-        ]);
-    }
-
-    /**
-     * Get User's Favorite
+     * Get User's Orders
      *
      * @param  User $user
      * @return \Illuminate\Http\Response

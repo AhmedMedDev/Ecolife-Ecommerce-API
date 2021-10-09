@@ -20,7 +20,8 @@ Route::group([
 
     //Cart CRUD
 
+    Route::delete('carts/destroyAll', 'CartController@destroyAll');
+
     Route::apiResource('carts', 'CartController');
 
-    
 });
