@@ -18,11 +18,7 @@ Route::group([
 
     //Category CRUD
 
-    Route::apiResource('categories', 'CategoryController')->except(['update']);
-
-    // Category Update
-
-    Route::post('categories/{category}', 'CategoryController@update');
+    Route::apiResource('categories', 'CategoryController');
 
     // Get The cheapest product in each category
 

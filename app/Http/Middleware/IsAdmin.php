@@ -16,7 +16,7 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (!Auth::user()->IsAdmin) 
+        if (!Auth::user()->isAdmin) 
         {
             return response()->json([
                 'message' => "Unauthenticated, for admin only",

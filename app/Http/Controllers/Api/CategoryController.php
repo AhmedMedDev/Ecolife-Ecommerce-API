@@ -63,10 +63,6 @@ class CategoryController extends Controller
     {
         $request = $request->validated();
 
-        $fileName = $this->saveImage($request['cat_img'], 'uploads/categories/img');
-
-        $request['cat_img'] = "uploads/categories/img/$fileName";
-
         $category = Category::create( $request );
 
         return response()->json([
@@ -100,15 +96,6 @@ class CategoryController extends Controller
     {
         $request = $request->validated();
 
-        if (isset($request['cat_img']))
-        {
-            \File::delete(public_path($category->cat_img));
-
-            $fileName = $this->saveImage($request['cat_img'], 'uploads/categories/img');
-
-            $request['cat_img'] = "uploads/categories/img/$fileName";
-        }
-
         $category = $category->update( $request );
 
         return response()->json([
@@ -139,11 +126,6 @@ class CategoryController extends Controller
      */
     public function cheapestProduct()
     {
-        //  $sql = "SELECT categories.id as cat_id, cat_name, cat_img, MIN(price) as cheapestProduct 
-        //          FROM products 
-        //          JOIN categories ON categories.id=products.category_id 
-        //          GROUP BY products.category_id";
-
          $cheapestProduct = DB::table('products')
          ->select('categories.id as cat_id', 'cat_name', 'cat_img', DB::raw('min(price) as cheapestProduct'))
          ->join('categories','categories.id', 'products.category_id')
