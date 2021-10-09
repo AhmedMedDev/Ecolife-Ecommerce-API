@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\File;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 
 /*
@@ -31,3 +32,12 @@ Route::get('user/verify/{verify_code}','Auth\VerificationController@verify')->na
 Route::get('login/github', 'Auth\LoginWithX@redirectToProvider');
 
 Route::get('login/github/callback', 'Auth\LoginWithX@handleProviderCallback');
+
+Route::get('config/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    // $exitCode = Artisan::call('config:cache');
+    return response()->json([
+        'success' => true,
+        'payload' => 'Cache cleared'
+    ]);
+});
