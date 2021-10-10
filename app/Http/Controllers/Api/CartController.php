@@ -22,7 +22,7 @@ class CartController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('admin', ['except' => ['store','update','destroy']]);
+        $this->middleware('admin', ['except' => ['store','destroyAll','update','destroy']]);
     }
 
     /**
