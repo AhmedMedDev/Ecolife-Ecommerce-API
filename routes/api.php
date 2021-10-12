@@ -40,6 +40,7 @@ Route::group([
     'middleware' => [
         'api',
         'auth:api',
+        'cartNotEmpty'
     ],
     'namespace' => 'Api',
 

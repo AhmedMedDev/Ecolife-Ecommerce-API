@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Cart;
 
+use App\Rules\UniqueCartProduct;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,7 +26,7 @@ class StoreCartRequest extends FormRequest
     public function rules()
     {
         return [
-            'product_id'    => 'required|exists:App\Models\Product,id|unique:carts',
+            'product_id'    => ['required', new UniqueCartProduct ],
             'quantity'      => 'integer',
         ];
     }

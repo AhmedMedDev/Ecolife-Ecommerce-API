@@ -9,6 +9,7 @@ use App\Traits\AddressTrait;
 use App\Traits\ImgUpload;
 use App\Traits\OrderProductTrait;
 use App\Traits\OrderTrait;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class CheckOutController extends Controller
@@ -37,6 +38,8 @@ class CheckOutController extends Controller
 
             $this->storeOrderProduct($order_id);
 
+            DB::table('carts')->where('user_id', Auth::user()->id)->delete();
+            
             return $order_id;
         });
 
