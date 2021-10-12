@@ -9,6 +9,7 @@ use App\Traits\AddressTrait;
 use App\Traits\ImgUpload;
 use App\Traits\OrderProductTrait;
 use App\Traits\OrderTrait;
+use Illuminate\Support\Facades\DB;
 
 class CheckOutController extends Controller
 {
@@ -21,23 +22,28 @@ class CheckOutController extends Controller
      *
      * @return \Illuminate\Http\Response
      * 
-     * for admin only 
+     * for auth user
      * 
      */
     public function store(AddressRequest $request) // Secured Endpoint
     {
         $request = $request->validated();
 
-        $request['address_id']  = $this->storeAddress($request)->original['payload']['id'];
+        $order_id = DB::transaction(function () use ($request) {
 
-        $request['order_id']    = $this->storeOrder($request)->original['payload']['id'];
+            $request['address_id']  = $this->storeAddress($request)->original['payload']['id'];
+            
+            $order_id  = $this->storeOrder($request)->original['payload']['id'];
 
-        $this->storeOrderProduct($request);
+            $this->storeOrderProduct($order_id);
+
+            return $order_id;
+        });
 
         return response()->json([
             'success' => true,
             'payload' => [
-                'order_id' => $request['order_id']
+                'order_id' => $order_id
             ]
         ]);
     }

@@ -117,24 +117,4 @@ class CategoryController extends Controller
             'success' => true,
         ]);
     }
-
-    /**
-     * cheapest Product 
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function cheapestProduct()
-    {
-         $cheapestProduct = DB::table('products')
-         ->select('categories.id as cat_id', 'cat_name', 'cat_img', DB::raw('min(price) as cheapestProduct'))
-         ->join('categories','categories.id', 'products.category_id')
-         ->groupBy('categories.id')
-         ->get();
-
-        return response()->json([
-            'success' => true,
-            'payload' => $cheapestProduct
-        ]);
-    }
 }
