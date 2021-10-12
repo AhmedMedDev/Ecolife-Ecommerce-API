@@ -23,8 +23,10 @@ class ReviewController extends Controller
     {
         $this->middleware(
             ['auth:api'],
-            ['except' => ['index','show','indexWithUser']]
+            ['except' => ['index','show','indexWithUser']],
         );
+
+        $this->middleware('userCanReview')->only('store');
     }
 
     /**

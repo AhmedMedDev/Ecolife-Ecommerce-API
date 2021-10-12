@@ -205,7 +205,7 @@ class UserController extends Controller
      */
     public function purchases(User $user) // Secured Endpoint
     {
-        // Gate::authorize('orders',$user);
+        Gate::authorize('purchases',$user);
 
         $userpurchases = DB::table('user_purchases')
         ->where('user_id',$user->id)

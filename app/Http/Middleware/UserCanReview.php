@@ -4,8 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
-class IsAdmin
+class UserCanReview
 {
     /**
      * Handle an incoming request.
@@ -16,10 +17,16 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (!Auth::user()->isAdmin) 
+        $isExist = DB::table('user_purchases')->where([
+            ['user_id', '=', Auth::user()->id],
+            ['product_id', '=', $request->product_id]
+        ])->count();
+ 
+        if ($isExist == 0)
         {
             return response()->json([
-                'message' => "unauthorized, for admin only",
+                'success' => false,
+                'payload' => "unauthorized, for specific users only",
             ],401);
         }
 

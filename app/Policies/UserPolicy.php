@@ -95,6 +95,20 @@ class UserPolicy
                 : Response::deny('Unauthenticated, this action for specific user only',401);
     }
 
+        /**
+     * Determine whether the user can delete the model.
+     *
+     * @param  \App\User  $user
+     * @param  \App\User  $model
+     * @return mixed
+     */
+    public function purchases(User $user, User $model)
+    {
+        return $model->id == Auth::user()->id
+                ? Response::allow()
+                : Response::deny('Unauthenticated, this action for specific user only',401);
+    }
+
     /**
      * Determine whether the user can delete the model.
      *
