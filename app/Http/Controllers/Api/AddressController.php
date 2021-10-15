@@ -45,7 +45,7 @@ class AddressController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $AddressRequest
      * @return \Illuminate\Http\Response
      * 
      *  for Auth user
