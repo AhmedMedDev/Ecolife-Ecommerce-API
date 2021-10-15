@@ -7,6 +7,7 @@ use App\Http\Requests\Product\StoreProductRequest;
 use App\Http\Requests\Product\UpdateProductRequest;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\ProductBox;
 use App\Traits\ImgUpload;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -49,8 +50,11 @@ class ProductController extends Controller
      */
     public function index(Request $request) // Secured Endpoint
     {
-        $products = Cache::rememberForever('product_box', 
-        fn() => DB::table('product_box')->get());
+        // $products = Cache::rememberForever('product_box', 
+        // fn() => DB::table('product_box')->get());
+
+       $products = Cache::rememberForever('product_box', 
+       fn() => ProductBox::all());
         
         return response()->json([
             'success' => true,
@@ -97,7 +101,8 @@ class ProductController extends Controller
         return response()->json([
             'success' => true,
             'payload' => [
-                'product'           => DB::table('product_box')->where('pro_id', $product->id)->get(),
+                // 'product'           => DB::table('product_box')->where('pro_id', $product->id)->get(),
+                'product'           => ProductBox::where('pro_id', $product->id)->get(),
                 'product_reviews'   => DB::table('review_box')->where('product_id', $product->id)->get()
             ]
         ]);
