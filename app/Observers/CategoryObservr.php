@@ -38,8 +38,6 @@ class CategoryObservr
     public function deleted(Category $category)
     {
         Cache::forget('categories');
-
-        \File::delete(public_path($category->cat_img));
     }
 
 }
