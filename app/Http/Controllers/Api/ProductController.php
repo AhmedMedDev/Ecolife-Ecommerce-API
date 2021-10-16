@@ -75,15 +75,21 @@ class ProductController extends Controller
     {
         $request = $request->validated();
 
-        // $fileName = $this->saveImage($request['mainImage'], 'uploads/products/mainImg');
+        $request['images'] = [];
 
-        // $request['mainImage'] = "uploads/products/mainImg/$fileName";
+        for ($i = 0; $i < count($request['pics']); $i++) 
+        { 
+            $fileName = $this->saveImage($request['pics'][$i], 'uploads/products/images');
+            $image ="uploads/products/images/$fileName";
+
+            array_push($request['images'], $image);
+        }
 
         $product = Product::create( $request );
 
         return response()->json([
             'success' => true,
-            'payload' => $product
+            'payload' => ProductBox::where('pro_id', $product->id)->get()
         ]);
     }
 

@@ -28,7 +28,7 @@ class StoreProductRequest extends FormRequest
             'pro_des'     => 'required|string',
             'pro_details' => 'required|string',
             'price'       => 'required|between:0,99.99',
-            'images'      => 'required|array',
+            'pics'        => 'required|array',
             'rate'        => 'required|integer|digits_between:1,5',
             'offer'       => 'required|integer|digits_between:1,100',
             'new'         => 'required|boolean',
