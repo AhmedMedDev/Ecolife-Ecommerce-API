@@ -16,7 +16,7 @@ class ProductObserver
      */
     public function created(Product $product)
     {
-        Cache::forget('products');
+        Cache::forget('product_box');
     }
 
     /**
@@ -27,7 +27,7 @@ class ProductObserver
      */
     public function updated(Product $product)
     {
-        Cache::forget('products');
+        Cache::forget('product_box');
     }
 
     /**
@@ -38,19 +38,14 @@ class ProductObserver
      */
     public function deleted(Product $product)
     {
-        Cache::forget('products');
+        Cache::forget('product_box');
 
         /**
          * Delete main image
          */
 
-        // File::delete(public_path($product->mainImage));
-
-        /**
-         * Delete other images
-         */
-
-        // File::deleteDirectory(public_path("uploads/products/images/$product->id"));
+        for ($i = 0; $i < count($product->images); $i++) 
+                \File::delete(public_path($product->images[$i]));
 
     }
 }

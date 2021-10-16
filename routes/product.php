@@ -15,12 +15,10 @@ Route::group([
 
     //Product CRUD
 
-    Route::apiResource('products', 'ProductController')->except(['index']);
-
-    Route::get('products', 'ProductController@index');
+    Route::apiResource('products', 'ProductController')->except(['update']);
 
     // Product Update
-    // Route::post('products/{product}', 'ProductController@update');
+    Route::post('products/{product}', 'ProductController@update');
 
     //Product's Reviews
 

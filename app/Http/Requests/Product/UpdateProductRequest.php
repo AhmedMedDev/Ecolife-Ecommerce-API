@@ -28,7 +28,7 @@ class UpdateProductRequest extends FormRequest
             'pro_des'     => 'string',
             'pro_details' => 'string',
             'price'       => 'between:0,99.99',
-            'images'      => 'array',
+            'pics'        => 'array',
             'rate'        => 'integer|digits_between:1,5',
             'offer'       => 'integer|digits_between:1,100',
             'new'         => 'boolean',

@@ -50,9 +50,6 @@ class ProductController extends Controller
      */
     public function index(Request $request) // Secured Endpoint
     {
-        // $products = Cache::rememberForever('product_box', 
-        // fn() => DB::table('product_box')->get());
-
        $products = Cache::rememberForever('product_box', 
        fn() => ProductBox::all());
         
@@ -107,7 +104,6 @@ class ProductController extends Controller
         return response()->json([
             'success' => true,
             'payload' => [
-                // 'product'           => DB::table('product_box')->where('pro_id', $product->id)->get(),
                 'product'           => ProductBox::where('pro_id', $product->id)->get(),
                 'product_reviews'   => DB::table('review_box')->where('product_id', $product->id)->get()
             ]
@@ -128,14 +124,21 @@ class ProductController extends Controller
     {
         $request = $request->validated();
 
-        // if (isset($request['mainImage']))
-        // {
-        //     \File::delete(public_path($product->mainImage));
+        if (isset($request['pics']))
+        {
+            for ($i = 0; $i < count($product->images); $i++) 
+                \File::delete(public_path($product->images[$i]));
 
-        //     $fileName = $this->saveImage($request['mainImage'], 'uploads/products/mainImg');
+            $request['images'] = [];
 
-        //     $request['mainImage'] = "uploads/products/mainImg/$fileName";
-        // }
+            for ($i = 0; $i < count($request['pics']); $i++) 
+            { 
+                $fileName = $this->saveImage($request['pics'][$i], 'uploads/products/images');
+                $image ="uploads/products/images/$fileName";
+    
+                array_push($request['images'], $image);
+            }
+        }
 
         $product = $product->update( $request );
 
