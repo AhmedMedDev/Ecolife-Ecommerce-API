@@ -140,10 +140,11 @@ class ProductController extends Controller
             }
         }
 
-        $product = $product->update( $request );
+        $product->update( $request );
 
         return response()->json([
             'success' => true,
+            'payload' => ProductBox::where('pro_id', $product->id)->get(),
         ]);
     }
 
