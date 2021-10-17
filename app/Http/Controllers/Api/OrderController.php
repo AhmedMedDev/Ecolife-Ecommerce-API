@@ -34,7 +34,7 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Cache::rememberForever('orders', 
-        fn() => DB::table('orders')->get());
+        fn() => DB::table('order_box')->get());
         
         return response()->json([
             'success' => true,
