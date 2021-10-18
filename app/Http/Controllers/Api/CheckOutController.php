@@ -11,6 +11,8 @@ use App\Traits\OrderProductTrait;
 use App\Traits\OrderTrait;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
+
 
 class CheckOutController extends Controller
 {
@@ -39,7 +41,12 @@ class CheckOutController extends Controller
             $this->storeOrderProduct($order_id);
 
             DB::table('carts')->where('user_id', Auth::user()->id)->delete();
-            
+
+            // come back to put them in observer 
+            Cache::forget('order_products');
+            Cache::forget('addresses');
+            Cache::forget('orders');
+
             return $order_id;
         });
 
