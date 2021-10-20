@@ -24,8 +24,8 @@ class UpdateCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'cat_name'      => 'string|regex:/^[a-zA-Z ]+$/',
-            'cat_header'    => 'string|regex:/^[a-zA-Z ]+$/',
+            'cat_name'      => 'string',
+            'cat_header'    => 'string',
             'status'        => 'boolean',
         ];
     }
