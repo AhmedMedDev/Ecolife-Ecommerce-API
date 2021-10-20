@@ -29,5 +29,6 @@ Route::group([
 
     Route::apiResource('orderProducts', 'OrderProductController');
 
+    Route::apiResource('availableTimes', 'AvailableTimeController')->only(['index','store','destroy']);
     
 });

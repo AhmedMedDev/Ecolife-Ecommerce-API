@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\Address\AddressRequest;
+use App\Http\Requests\CheckOut\PlaceOrderRequest;
 use App\Traits\AddressTrait;
-use App\Traits\ImgUpload;
 use App\Traits\OrderProductTrait;
 use App\Traits\OrderTrait;
 use Illuminate\Support\Facades\Auth;
@@ -28,7 +27,7 @@ class CheckOutController extends Controller
      * for auth user
      * 
      */
-    public function store(AddressRequest $request) // Secured Endpoint
+    public function store(PlaceOrderRequest $request) // Secured Endpoint
     {
         $request = $request->validated();
 

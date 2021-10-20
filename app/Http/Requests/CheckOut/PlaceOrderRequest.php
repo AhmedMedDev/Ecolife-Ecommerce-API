@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Address;
+namespace App\Http\Requests\CheckOut;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AddressRequest extends FormRequest
+class PlaceOrderRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -33,6 +33,9 @@ class AddressRequest extends FormRequest
             'floor'           => 'string',
             'phone'           => 'required|string|numeric',
             'additional_info' => 'string',
+            'if_not_availble' => 'required|string',
+            'date'            => 'required|date',
+            'time'            => 'required',
         ];
     }
 }

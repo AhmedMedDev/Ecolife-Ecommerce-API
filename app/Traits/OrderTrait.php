@@ -26,9 +26,12 @@ Trait OrderTrait
         ->select('total_price')->get()[0]->total_price;
 
         $order = Order::create([
-            'user_id'       => $user_id,
-            'total_price'   => $total_price,
-            'address_id'    => $request['address_id'],
+            'user_id'           => $user_id,
+            'total_price'       => $total_price,
+            'address_id'        => $request['address_id'],
+            'if_not_availble'   => $request['if_not_availble'],
+            'date'              => $request['date'],
+            'time'              => $request['time'],
         ]);
 
         return response()->json([

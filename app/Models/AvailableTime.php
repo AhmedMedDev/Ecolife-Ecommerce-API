@@ -2,24 +2,17 @@
 
 namespace App\Models;
 
-use App\Observers\OrderObserver;
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class AvailableTime extends Model
 {
-    /**
+        /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'user_id',
-        'date',
-        'total_price',
-        'address_id',
-        'date',
         'time',
-        'if_not_availble',
     ];
 
      /**
@@ -28,11 +21,4 @@ class Order extends Model
      * @var bool
      */
     public $timestamps = false;
-
-    protected static function boot()
-    {
-        parent::boot();
-
-        Order::observe(OrderObserver::class);
-    }
 }
