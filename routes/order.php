@@ -19,6 +19,10 @@ Route::group([
 
     //Order CRUD
 
+    Route::delete('orders/{order}/cancel', 'OrderController@cancel');
+
+    Route::delete('orders/{order}/refund', 'OrderController@refund');
+
     Route::apiResource('orders', 'OrderController');
 
     /**

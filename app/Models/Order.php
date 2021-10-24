@@ -20,6 +20,7 @@ class Order extends Model
         'date',
         'time',
         'if_not_availble',
+        'destroy_mode',
     ];
 
      /**

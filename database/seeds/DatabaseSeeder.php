@@ -28,11 +28,11 @@ class DatabaseSeeder extends Seeder
     {
         // factory(User::class, 50)->create();
         // factory(Category::class, 40)->create();
-        // factory(Product::class, 30)->create();
+        factory(Product::class, 30)->create();
         // factory(Address::class, 30)->create();
-        factory(Order::class, 30)->create();
-        factory(Review::class, 30)->create();
-        factory(Cart::class, 30)->create();
-        factory(OrderProduct::class, 30)->create();
+        // factory(Order::class, 30)->create();
+        // factory(Review::class, 30)->create();
+        // factory(Cart::class, 30)->create();
+        // factory(OrderProduct::class, 30)->create();
     }
 }

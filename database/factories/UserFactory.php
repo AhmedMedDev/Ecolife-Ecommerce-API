@@ -52,14 +52,14 @@ $factory->define(Category::class, function (Faker $faker) {
 $factory->define(Product::class, function (Faker $faker) {
     return [
         'pro_name'      => $faker->name,
-        'pro_des'       => $faker->text,
+        'pro_des'       => $faker->sentence(6,true),
         'pro_details'   => $faker->text,
-        'price'         => $faker->randomFloat,
+        'price'         => $faker->numberBetween(350,5000),
         'images'        => [$faker->imageUrl(283,241),$faker->imageUrl(283,241)],
         'rate'          => $faker->numberBetween(1,5),
         'offer'         => $faker->numberBetween(5,50),
         'new'           => $faker->boolean(),
-        'category_id'   => $faker->numberBetween(1,10),
+        'category_id'   => $faker->numberBetween(43,57),
         'status'        => $faker->boolean(),
     ];
 });

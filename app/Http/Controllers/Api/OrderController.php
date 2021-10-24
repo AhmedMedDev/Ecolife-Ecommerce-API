@@ -120,4 +120,40 @@ class OrderController extends Controller
             'success' => true,
         ]);
     }
+
+        /**
+     * Remove the specified resource from storage.
+     *
+     * @param  Order $order
+     * @return \Illuminate\Http\Response
+     * 
+     * for admin only 
+     * 
+     */
+    public function cancel(Order $order)
+    {
+        $order = $order->update( ['destroy_mode' => 'C'] );
+
+        if ($order) return response()->json([
+            'success' => true,
+        ]);
+    }
+
+        /**
+     * Remove the specified resource from storage.
+     *
+     * @param  Order $order
+     * @return \Illuminate\Http\Response
+     * 
+     * for admin only 
+     * 
+     */
+    public function refund(Order $order)
+    {
+        $order = $order->update( ['destroy_mode' => 'R'] );
+
+        if ($order) return response()->json([
+            'success' => true,
+        ]);
+    }
 }
