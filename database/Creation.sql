@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 24, 2021 at 07:49 PM
+-- Generation Time: Oct 25, 2021 at 08:58 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -252,6 +252,8 @@ INSERT INTO `orders` (`id`, `user_id`, `total_price`, `address_id`, `date`, `tim
 CREATE TABLE `order_box` (
 `order_id` bigint(20) unsigned
 ,`total_price` float
+,`if_not_availble` varchar(50)
+,`destroy_mode` varchar(1)
 ,`date` date
 ,`user_id` bigint(2) unsigned
 ,`name` varchar(255)
@@ -542,7 +544,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `order_box`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `order_box`  AS  select `orders`.`id` AS `order_id`,`orders`.`total_price` AS `total_price`,`orders`.`date` AS `date`,`orders`.`user_id` AS `user_id`,`users`.`name` AS `name`,`users`.`email` AS `email`,`orders`.`address_id` AS `address_id`,`addresses`.`compony_name` AS `compony_name`,`addresses`.`governorate` AS `governorate`,`addresses`.`block_number` AS `block_number`,`addresses`.`street_address` AS `street_address`,`addresses`.`avenue` AS `avenue`,`addresses`.`building_number` AS `building_number`,`addresses`.`floor` AS `floor`,`addresses`.`phone` AS `phone`,`addresses`.`additional_info` AS `additional_info` from ((`orders` join `users` on(`users`.`id` = `orders`.`user_id`)) join `addresses` on(`addresses`.`id` = `orders`.`address_id`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `order_box`  AS  select `orders`.`id` AS `order_id`,`orders`.`total_price` AS `total_price`,`orders`.`if_not_availble` AS `if_not_availble`,`orders`.`destroy_mode` AS `destroy_mode`,`orders`.`date` AS `date`,`orders`.`user_id` AS `user_id`,`users`.`name` AS `name`,`users`.`email` AS `email`,`orders`.`address_id` AS `address_id`,`addresses`.`compony_name` AS `compony_name`,`addresses`.`governorate` AS `governorate`,`addresses`.`block_number` AS `block_number`,`addresses`.`street_address` AS `street_address`,`addresses`.`avenue` AS `avenue`,`addresses`.`building_number` AS `building_number`,`addresses`.`floor` AS `floor`,`addresses`.`phone` AS `phone`,`addresses`.`additional_info` AS `additional_info` from ((`orders` join `users` on(`users`.`id` = `orders`.`user_id`)) join `addresses` on(`addresses`.`id` = `orders`.`address_id`)) ;
 
 -- --------------------------------------------------------
 
