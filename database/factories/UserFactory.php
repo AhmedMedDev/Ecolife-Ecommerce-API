@@ -43,26 +43,41 @@ $factory->define(User::class, function (Faker $faker) {
 
 $factory->define(Category::class, function (Faker $faker) {
     return [
-        'cat_name' => $faker->name,
-        'cat_header' => $faker->name,
+        'cat_name'      => $faker->word,
+        'cat_header'    => $faker->word,
         'status'        => $faker->boolean(),
     ];
 });
 
 $factory->define(Product::class, function (Faker $faker) {
     return [
-        'pro_name'      => $faker->name,
+        'pro_name'      => $faker->sentence(2,true),
         'pro_des'       => $faker->sentence(6,true),
-        'pro_details'   => $faker->text,
+        'pro_details'   => $faker->sentence(15,true),
         'price'         => $faker->numberBetween(350,5000),
-        'images'        => [$faker->imageUrl(283,241),$faker->imageUrl(283,241)],
+        'images'        => [$faker->imageUrl(283,241),$faker->imageUrl(283,241),$faker->imageUrl(283,241),$faker->imageUrl(283,241)],
         'rate'          => $faker->numberBetween(1,5),
         'offer'         => $faker->numberBetween(5,50),
         'new'           => $faker->boolean(),
-        'category_id'   => $faker->numberBetween(43,57),
+        'category_id'   => $faker->numberBetween(58,72),
         'status'        => $faker->boolean(),
     ];
 });
+
+// $factory->define(Product::class, function (Faker $faker) {
+//     return [
+//         'pro_name'      => $faker->words(3, false),
+//         'pro_des'       => $faker->words(6,false),
+//         'pro_details'   => $faker->words(15, false),
+//         'price'         => $faker->numberBetween(350,5000),
+//         'images'        => [$faker->imageUrl(283,241),$faker->imageUrl(283,241),$faker->imageUrl(283,241),$faker->imageUrl(283,241)],
+//         'rate'          => $faker->numberBetween(1,5),
+//         'offer'         => $faker->numberBetween(5,50),
+//         'new'           => $faker->boolean(),
+//         'category_id'   => $faker->numberBetween(58,72),
+//         'status'        => $faker->boolean(),
+//     ];
+// });
 
 $factory->define(Review::class, function (Faker $faker) {
     return [

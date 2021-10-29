@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2021 at 08:58 PM
+-- Generation Time: Oct 29, 2021 at 06:29 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -67,15 +67,6 @@ CREATE TABLE `available_times` (
   `time` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `available_times`
---
-
-INSERT INTO `available_times` (`id`, `time`) VALUES
-(5, '2:4'),
-(6, '555555'),
-(7, '44444');
-
 -- --------------------------------------------------------
 
 --
@@ -94,9 +85,11 @@ CREATE TABLE `carts` (
 --
 
 INSERT INTO `carts` (`id`, `product_id`, `user_id`, `quantity`) VALUES
-(43, 114, 51, 1),
-(44, 116, 51, 1),
-(45, 113, 1, 1);
+(45, 113, 1, 1),
+(52, 210, 1, 1),
+(54, 203, 51, 3),
+(55, 202, 51, 10),
+(56, 202, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -154,19 +147,21 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `cat_name`, `cat_header`, `status`) VALUES
-(43, 'soft drinks', 'drinks', 1),
-(44, 'cat 2', 'main cat 2', 1),
-(47, 'tasub@mailinator.com', 'qabisa@mailinator.com', 0),
-(48, 'Yolanda Waelchi', 'Julien Klein', 1),
-(49, 'Sim Zboncak', 'Mr. Larue Stokes PhD', 0),
-(50, 'Rigoberto Spinka', 'Christop Morar', 1),
-(51, 'Hobart Boyle', 'Brycen Nikolaus', 0),
-(52, 'Raheem Prosacco', 'Jovany Gusikowski', 1),
-(53, 'Colby Greenholt', 'Aditya Hermiston', 0),
-(54, 'Ms. Alyce Gusikowski Sr.', 'Delta Hartmann', 1),
-(55, 'Norberto Cartwright', 'Mario Kuhn IV', 0),
-(56, 'Orpha Bruen', 'Claud Jones', 1),
-(57, 'Bettie Walter', 'Mr. Fermin Parker Sr.', 1);
+(58, 'modi', 'et', 1),
+(59, 'laudantium', 'doloribus', 0),
+(60, 'a', 'recusandae', 1),
+(61, 'quisquam', 'possimus', 0),
+(62, 'sequi', 'nemo', 1),
+(63, 'eaque', 'ipsa', 1),
+(64, 'qui', 'iusto', 1),
+(65, 'numquam', 'natus', 0),
+(66, 'tempora', 'et', 1),
+(67, 'perspiciatis', 'quod', 1),
+(68, 'autem', 'ut', 1),
+(69, 'quos', 'qui', 0),
+(70, 'suscipit', 'impedit', 1),
+(71, 'nemo', 'voluptas', 1),
+(72, 'ut', 'non', 1);
 
 -- --------------------------------------------------------
 
@@ -347,36 +342,36 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `pro_name`, `pro_des`, `pro_details`, `price`, `images`, `rate`, `new`, `offer`, `category_id`, `status`) VALUES
-(110, 'Joany Murray', 'Dolor aut repellat earum ad.', 'Soluta vero omnis nulla aperiam numquam laboriosam perspiciatis. Illum impedit quo blanditiis. In sint dolores soluta quia et deleniti fugit ipsa. Eius ut ea ea illo atque quibusdam.', 4013, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?46983\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?28780\"]', '3', 1, 42, 49, 1),
-(111, 'Mr. Korey Wolf', 'Laborum enim cumque ex saepe.', 'Qui ut doloremque ut non. Placeat maxime reprehenderit nihil totam. Iusto voluptas provident illum et harum. Nihil neque error voluptate magnam.', 477, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?88033\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?25351\"]', '4', 0, 31, 56, 1),
-(112, 'Mrs. Clementine Heller DDS', 'Sit sequi dolor non debitis minima eum.', 'Autem in qui qui voluptatem cumque quis fugiat. Dolorem iure ipsum deserunt quo natus ut. Esse praesentium asperiores dolor. Et eos dolor qui adipisci et.', 2603, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?94779\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?48825\"]', '3', 0, 14, 47, 1),
-(113, 'Augustus Murazik', 'Numquam voluptas doloribus eaque consequatur consequatur optio deleniti.', 'Dicta ut eligendi provident sapiente tempore. Architecto recusandae sint ea aut.', 482, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?75738\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?33985\"]', '1', 1, 5, 48, 0),
-(114, 'Mrs. Dawn Goldner MD', 'Autem incidunt voluptas unde.', 'Doloremque optio non odio. Aliquid et qui modi commodi qui. Quibusdam suscipit sunt facilis velit qui. Exercitationem voluptas et optio quia debitis.', 2629, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?13247\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?94646\"]', '5', 1, 23, 44, 1),
-(115, 'Camren Gulgowski', 'Numquam aut aut et enim.', 'Explicabo est at cumque dolor. Modi sapiente dolor alias accusamus. Dolorem debitis assumenda non quibusdam. Enim impedit doloribus earum et.', 3493, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?30212\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?43854\"]', '2', 0, 5, 44, 0),
-(116, 'Ms. Michelle McDermott', 'Vero quibusdam maxime saepe aliquam sed nesciunt asperiores quos.', 'Dolorem sed a quis repellat quo doloremque. Sed aliquid hic at molestiae natus voluptatem doloribus voluptatum. Qui ipsum laborum vitae quis.', 4726, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?66743\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?23221\"]', '1', 1, 45, 53, 0),
-(117, 'Savanna Collier', 'Quis dicta quas molestiae distinctio magnam et.', 'Harum explicabo atque ut magni ex nam facere. Quisquam sed omnis neque exercitationem molestiae reprehenderit dolor aut.', 404, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?57366\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?99288\"]', '5', 1, 11, 49, 0),
-(118, 'Salma Hand MD', 'Voluptatum cupiditate vitae ut perferendis deserunt.', 'Ad explicabo repellat doloremque animi neque et. Velit odit debitis totam ipsam aliquam.', 3488, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?11468\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?41311\"]', '5', 1, 42, 46, 0),
-(119, 'Myles Schinner', 'Quo alias sed doloribus dolorem nihil.', 'Necessitatibus pariatur quam quis aperiam totam repudiandae. Quis distinctio perferendis consequatur magnam. Molestias aut necessitatibus ab est harum.', 2405, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?36184\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?10177\"]', '5', 1, 16, 46, 0),
-(120, 'Josue Kreiger', 'Possimus corrupti nisi doloremque ex.', 'Qui eum qui aut laborum cupiditate consequatur. Debitis a sunt ut ipsa. Iure porro consequuntur officia tempora reiciendis.', 1301, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?46846\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?30145\"]', '1', 1, 25, 52, 0),
-(121, 'Earline Nitzsche', 'Officiis hic voluptatem explicabo laudantium.', 'Dolorem dicta qui nulla cum pariatur illo. Illo modi et est neque ab dolorum. Fuga minus porro molestias dolor consequuntur aspernatur.', 3067, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?72100\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?45395\"]', '2', 1, 12, 43, 0),
-(122, 'Tad Hintz', 'Eum pariatur ducimus omnis in.', 'Enim autem laborum ut sint consequuntur. Minima quia quasi sed ut voluptatem. Omnis dolorem laborum sit ea non quos dolores.', 1738, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?82324\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?82371\"]', '3', 1, 15, 51, 1),
-(123, 'Luciano Reilly', 'Placeat omnis laboriosam sunt placeat reprehenderit accusamus vitae.', 'Minima consequuntur aliquam qui cupiditate saepe deserunt. Repudiandae voluptatem aliquid sequi nihil. Quia pariatur aut dolorem et. Sed atque inventore architecto aut. Qui voluptas beatae nihil.', 2762, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?24174\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?33371\"]', '3', 0, 39, 53, 0),
-(124, 'Clint Jast', 'Perspiciatis et quo quibusdam ut.', 'Rerum est animi minima sapiente deserunt mollitia ipsum eum. Ab aut nobis eaque atque. In qui ipsum libero velit ipsam necessitatibus harum. Voluptatem iure libero nulla vel odit beatae sed.', 4282, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?56627\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?54411\"]', '5', 0, 20, 46, 0),
-(125, 'Brando Hauck', 'Et est rerum voluptas ut voluptas temporibus.', 'Occaecati dolores non veritatis amet occaecati ea itaque provident. Rerum nam commodi tempora amet totam. Quaerat sit odit ut omnis est culpa ipsum.', 788, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?97509\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?89561\"]', '3', 1, 18, 54, 1),
-(126, 'Samir Fritsch', 'Iusto sit molestias et.', 'Ut rerum nam unde nostrum placeat. Et quia est sed. Iure vero nulla veniam nesciunt harum.', 3254, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?37427\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?63312\"]', '4', 0, 21, 45, 0),
-(127, 'Mekhi Hauck', 'Quidem autem et neque hic ut accusantium dolore.', 'Nihil nemo enim ut dolorum est. Quisquam enim reiciendis et nulla culpa repellendus repellendus. Quia nostrum est ducimus magni.', 3305, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?88205\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?91218\"]', '4', 0, 14, 51, 0),
-(128, 'Triston Feeney V', 'Et minus dolor esse cum.', 'Doloremque similique omnis beatae aut ut pariatur quo cumque. Facere sit adipisci tenetur. Quos debitis nihil qui sit esse sed quam.', 4823, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?86712\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?92231\"]', '3', 1, 31, 57, 1),
-(129, 'Elna Hermiston', 'Architecto exercitationem aut dicta inventore.', 'Neque magnam quas nihil. Et eos molestiae veritatis voluptatem et omnis dolorem. Veritatis ipsam perspiciatis ut aut debitis odit. Molestiae consequatur et accusamus aperiam.', 925, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?94110\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?18014\"]', '3', 0, 46, 51, 1),
-(130, 'Prof. Priscilla Labadie IV', 'Et vel exercitationem incidunt tenetur consequatur ea nostrum.', 'Eos deleniti nihil voluptas. Illum sapiente est beatae. Mollitia totam qui molestias officiis quasi.', 4048, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?58698\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?71514\"]', '3', 1, 8, 57, 1),
-(131, 'Johnathon Stamm', 'Illo quo earum id tempore quasi velit.', 'Ea fuga ut ea sint nostrum. Consequatur nemo aliquam fugiat voluptatem eos aut. Itaque quos debitis iste laborum odio quo voluptatem.', 1123, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?90746\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?23809\"]', '1', 0, 24, 46, 0),
-(132, 'Hailey Krajcik', 'Occaecati quia quam unde et.', 'Corrupti exercitationem sed similique dicta earum dicta nisi molestiae. Impedit ea dolor hic possimus molestiae dignissimos. Ut et aut non. Minus dolorem animi deserunt nostrum blanditiis.', 1470, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?41025\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?80526\"]', '1', 0, 35, 49, 0),
-(133, 'Alfredo Shanahan', 'Suscipit pariatur eius mollitia animi tenetur quae voluptatem.', 'Nobis quia enim qui voluptas aliquam. Accusamus necessitatibus aut labore molestiae adipisci. Ut est pariatur atque aut accusantium.', 2153, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?99795\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?54545\"]', '3', 1, 35, 54, 0),
-(134, 'Wyman Farrell', 'Quam aut soluta consequuntur et debitis sed asperiores explicabo.', 'Et quia magnam doloremque quo reprehenderit molestias nihil. Natus iure sed assumenda nobis eum. Vel voluptate ducimus aut odit voluptas eveniet. Repellendus optio et fuga.', 928, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?10582\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?20584\"]', '4', 1, 8, 52, 0),
-(135, 'Miguel Bauch', 'Eos laborum voluptatum perferendis voluptas sed quos.', 'Reprehenderit dolores dicta illum qui natus qui sunt eos. Et quas et omnis architecto nam et. Voluptate numquam sapiente ea deserunt.', 3304, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?24905\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?90215\"]', '1', 1, 12, 57, 1),
-(136, 'Dr. Raleigh Schuppe DDS', 'Magni aliquam non ratione dolor qui asperiores.', 'Totam sapiente earum ab in aut. Dolores nostrum est facilis impedit harum aut est. Animi aut ut minus facere. Vitae libero culpa tempore.', 4400, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?93423\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?44407\"]', '4', 1, 14, 48, 1),
-(137, 'Mr. Timmy Balistreri Sr.', 'Omnis hic libero qui voluptatem magni.', 'Optio ab officia labore minima expedita beatae. Quia nam sint suscipit accusamus sequi asperiores id dolorem. Libero quia animi et sed quidem pariatur.', 3042, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?13224\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?95376\"]', '1', 0, 8, 46, 0),
-(138, 'Jovani Baumbach', 'Velit dignissimos nihil itaque quia.', 'Quos ea atque sint et natus facilis ab veritatis. Voluptatibus et velit rerum perferendis qui voluptatem. Minima laborum sint tenetur maxime officia. Asperiores optio recusandae error.', 4098, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?96122\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?54657\"]', '5', 0, 24, 57, 1),
-(139, 'Ettie Wilkinson', 'Et doloremque eius pariatur sint.', 'Delectus ipsam optio est quibusdam modi quos. Aspernatur sint fuga odit eos libero numquam. Soluta nostrum sit molestiae animi cumque. Architecto quaerat consequatur magnam quidem facere.', 3445, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?59544\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?61711\"]', '2', 1, 24, 54, 1);
+(200, 'Quis possimus.', 'Laudantium repudiandae laudantium voluptates dolorem debitis similique.', 'Accusantium atque a blanditiis accusamus qui dignissimos commodi in perferendis incidunt dolore qui dignissimos vel accusantium.', 4642, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?15226\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?57956\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?81127\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?58468\"]', '4', 0, 31, 69, 0),
+(201, 'Itaque temporibus dolorem.', 'Quia autem sunt consequatur maiores.', 'Beatae qui dolores harum eius doloremque esse tenetur unde officia voluptate.', 3450, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?89212\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?66838\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?21574\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?90441\"]', '1', 1, 5, 67, 0),
+(202, 'Quaerat sed.', 'Iusto nisi sequi soluta autem aut non vel.', 'Qui impedit id neque quae quia doloremque dolorem numquam pariatur voluptatem alias consectetur eligendi ut tenetur numquam.', 4067, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?47393\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?87898\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?16238\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?79528\"]', '1', 1, 37, 61, 1),
+(203, 'Et dignissimos ea.', 'Et sint odio at.', 'Ut quae id non voluptatem et tempore neque dolorum rerum voluptas amet enim sed.', 4301, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?90089\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?39210\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?23187\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?26131\"]', '2', 1, 23, 60, 0),
+(204, 'Veniam soluta.', 'Sunt provident voluptatem ut exercitationem molestiae impedit.', 'Modi deserunt harum beatae quaerat nihil sed mollitia dolorem culpa omnis et atque ut enim est molestias enim.', 1147, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?33733\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?57906\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?38354\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?10714\"]', '2', 1, 13, 67, 1),
+(205, 'Voluptas sapiente.', 'Consectetur suscipit blanditiis et ea quia adipisci consequuntur.', 'Debitis at autem rerum porro et magnam sit facere est iure harum sint.', 4463, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?56770\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?23216\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?95408\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?72475\"]', '4', 0, 7, 60, 0),
+(206, 'Quia laborum aut.', 'Id ut earum aut autem veritatis.', 'Aut ea qui qui ratione aut labore cupiditate molestias labore nihil expedita consequatur occaecati.', 4986, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?84981\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?63271\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?84600\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?39696\"]', '2', 0, 32, 72, 1),
+(207, 'Accusantium rerum.', 'Ut sit est illo facilis quas.', 'Natus ut nesciunt culpa quae et doloribus saepe omnis in hic temporibus reprehenderit quo ut magnam nobis sequi quaerat sit.', 4210, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?69890\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?14343\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?13472\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?14821\"]', '3', 0, 20, 69, 0),
+(208, 'Et ratione et.', 'Impedit et harum rerum quod sed velit.', 'Ducimus voluptatum et numquam eveniet temporibus aut qui qui velit.', 4044, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?38165\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?34584\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?94273\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?43989\"]', '1', 1, 20, 65, 1),
+(209, 'Rerum aut.', 'Et sunt numquam quo fuga culpa vel fugiat vero.', 'Architecto voluptatem nobis sed voluptatem alias est tempore non earum dolor aut dignissimos provident dicta beatae modi natus est.', 1735, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?31721\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?12862\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?28221\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?20255\"]', '2', 0, 44, 60, 1),
+(210, 'Necessitatibus ut.', 'Odit velit quae ut minima.', 'Omnis ipsam ut cumque molestiae omnis aperiam iusto sequi sed et sed nam officiis nihil dolorum.', 3261, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?35222\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?69830\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?23301\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?87639\"]', '4', 1, 32, 60, 0),
+(211, 'Et vitae aperiam.', 'Velit suscipit deserunt similique unde odio reprehenderit minima eos.', 'Sed asperiores eligendi vel magni vitae corporis doloribus non magni et illum maiores possimus odit.', 4911, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?98769\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?52685\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?18169\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?26639\"]', '4', 0, 34, 72, 0),
+(212, 'Laudantium eveniet.', 'Voluptates sed voluptatum praesentium esse iste sed.', 'Et consectetur dignissimos ut est illum debitis temporibus quaerat cupiditate.', 1996, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?89719\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?28672\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?49594\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?16151\"]', '1', 0, 46, 61, 1),
+(213, 'Voluptates expedita.', 'Voluptates sint quis consectetur unde ipsam dolor.', 'Neque est facere voluptas iusto est consectetur aut nostrum vel placeat aut in est voluptates quis quo.', 4291, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?73032\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?55700\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?32113\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?12376\"]', '1', 0, 45, 58, 1),
+(214, 'Minima necessitatibus sit.', 'Ut molestiae amet fugiat facere.', 'Consectetur commodi est saepe et reiciendis maxime est aliquid omnis animi totam in.', 3070, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?12374\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?27745\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?27088\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?66208\"]', '3', 1, 6, 63, 0),
+(215, 'Et expedita cumque.', 'Aperiam ut architecto dolores expedita.', 'Omnis sequi laudantium suscipit atque nisi aperiam et sapiente expedita corporis consequatur minus praesentium ducimus ut vel esse doloremque minima.', 4851, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?34225\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?32881\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?91794\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?33919\"]', '5', 1, 40, 64, 1),
+(216, 'Possimus temporibus.', 'Et facilis et ab et itaque nulla.', 'Occaecati totam qui illo non neque impedit temporibus veniam quis hic non itaque eum et veritatis id repellendus aliquid eaque.', 2566, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?67414\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?11503\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?47862\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?16453\"]', '2', 0, 19, 60, 0),
+(217, 'Quod sed.', 'Deserunt doloremque pariatur officiis quisquam qui vitae cum.', 'Pariatur velit est consequatur vel ut laudantium ducimus praesentium voluptatem architecto sapiente omnis repellat asperiores.', 3953, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?59189\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?53607\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?73568\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?35280\"]', '2', 0, 36, 67, 0),
+(218, 'Voluptas quidem ut.', 'Numquam velit amet cum corporis ut error.', 'Quia porro accusantium quo ut non voluptatem commodi magni quae.', 2609, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?74516\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?82116\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?57586\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?28735\"]', '2', 1, 8, 60, 1),
+(219, 'In natus.', 'Alias ad sed nihil eos ratione.', 'Pariatur tenetur impedit dolorem aut cupiditate aut commodi eligendi molestiae consequatur.', 3815, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?43232\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?55985\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?17392\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?86047\"]', '5', 0, 15, 72, 1),
+(220, 'Iure accusamus.', 'Odit adipisci id et id aliquam reiciendis.', 'Tempore ut omnis neque unde nulla totam non sint architecto.', 2548, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?77493\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?23866\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?83004\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?18910\"]', '5', 0, 28, 72, 0),
+(221, 'Facere non.', 'Voluptas dolores ut accusantium.', 'Autem voluptatem vero repellendus officia repellat neque et quasi laudantium.', 3412, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?93810\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?17703\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?39440\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?70255\"]', '5', 1, 7, 65, 0),
+(222, 'Corrupti minus rerum.', 'Nam ut sit voluptatem rerum eligendi culpa amet.', 'Qui voluptate quia eveniet eum quisquam ipsa exercitationem ea ullam labore maxime sint eos autem molestias.', 1349, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?77079\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?80273\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?65910\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?58580\"]', '2', 0, 17, 61, 0),
+(223, 'Ut eveniet.', 'Adipisci distinctio qui a sit sit molestiae.', 'Nam ipsa ea aut nobis quasi dolores sunt aliquid sed nostrum placeat reprehenderit corporis culpa.', 3037, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?66300\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?21062\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?95320\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?20008\"]', '3', 1, 9, 72, 1),
+(224, 'Eum atque qui.', 'Facere dolorem aliquid atque eos.', 'Excepturi molestiae quam sapiente veniam officiis ipsum quidem veritatis nemo neque voluptas illum cumque ea dolorum qui est veritatis quam nihil.', 961, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?18591\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?91761\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?86643\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?78147\"]', '4', 0, 39, 69, 0),
+(225, 'Possimus aut rerum.', 'Iste et non enim quidem error quo iste sed.', 'Temporibus ut sunt error nesciunt non ea velit praesentium placeat.', 4700, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?15272\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?96416\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?45399\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?60469\"]', '4', 1, 27, 58, 1),
+(226, 'Et enim.', 'Quaerat exercitationem omnis delectus suscipit.', 'Nam hic quisquam id consequatur et corrupti sed qui inventore a perspiciatis nihil earum neque placeat delectus provident reprehenderit laborum aperiam.', 1179, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?67269\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?57228\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?92944\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?35155\"]', '1', 1, 41, 71, 0),
+(227, 'Tempore qui aspernatur.', 'Rerum qui voluptates et et qui accusamus.', 'Omnis dignissimos voluptatem est hic asperiores omnis ut facere omnis quis sapiente quos veritatis eum reprehenderit voluptates quis consequatur sint veniam.', 1401, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?59326\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?42689\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?90216\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?71256\"]', '1', 0, 28, 59, 1),
+(228, 'Tempore quam non.', 'Quos laboriosam ut quidem at qui accusamus enim.', 'Deleniti nihil hic cupiditate rerum totam aliquid aut nemo quibusdam recusandae.', 4897, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?82605\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?94046\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?27723\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?76524\"]', '1', 1, 36, 63, 1),
+(229, 'Qui sequi.', 'Laudantium quam sunt itaque sed maxime.', 'Sit molestiae aut ullam esse facilis blanditiis in iusto omnis mollitia ut sit et qui consequatur.', 1264, '[\"https:\\/\\/lorempixel.com\\/283\\/241\\/?44279\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?64278\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?26288\",\"https:\\/\\/lorempixel.com\\/283\\/241\\/?43413\"]', '3', 0, 36, 70, 1);
 
 -- --------------------------------------------------------
 
@@ -415,6 +410,16 @@ CREATE TABLE `reviews` (
   `product_id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `re_des`, `re_rate`, `product_id`, `user_id`) VALUES
+(41, 'Adipisci optio eum quibusdam consequatur neque veniam consequatur. Earum voluptas modi quo doloremque earum. Molestiae voluptatem et sunt reprehenderit asperiores sapiente voluptatibus. Ipsa est vel soluta nesciunt quia temporibus.', '5', 4, 25),
+(42, 'Ullam vitae doloremque in voluptas. Totam consectetur eos sed cupiditate nihil. Vel est hic dolores quas rerum eos odio. Quas ipsa commodi maxime aliquid nihil.', '2', 15, 12),
+(43, 'Aut est quis omnis id vel voluptates. Voluptatem dolores enim non nihil eius facilis. Vitae sequi beatae a dolores dolorem dicta possimus. Ad distinctio odio qui iste libero dignissimos.', '2', 19, 29),
+(44, 'Nostrum saepe est repellat dolorem. Sint pariatur eius quia est est. Vitae adipisci officiis non commodi maxime non.', '5', 18, 19);
 
 -- --------------------------------------------------------
 
@@ -526,7 +531,7 @@ CREATE TABLE `user_purchases` (
 --
 DROP TABLE IF EXISTS `cart_box`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `cart_box`  AS  select `carts`.`id` AS `cart_id`,`carts`.`user_id` AS `user_id`,`carts`.`quantity` AS `quantity`,`product_box`.`pro_id` AS `pro_id`,`product_box`.`pro_name` AS `pro_name`,`product_box`.`pro_des` AS `pro_des`,`product_box`.`pro_details` AS `pro_details`,`product_box`.`pro_price` AS `pro_price`,`product_box`.`new_price` AS `new_price`,`product_box`.`pro_images` AS `pro_images`,`product_box`.`pro_rate` AS `pro_rate`,`product_box`.`new` AS `new`,`product_box`.`offer` AS `offer`,`product_box`.`pro_status` AS `pro_status`,`product_box`.`category_id` AS `category_id`,`product_box`.`cat_name` AS `cat_name`,`product_box`.`cat_header` AS `cat_header`,`product_box`.`cat_status` AS `cat_status` from (`carts` join `product_box` on(`carts`.`product_id` = `product_box`.`pro_id`)) ;
+CREATE VIEW `cart_box`  AS  select `carts`.`id` AS `cart_id`,`carts`.`user_id` AS `user_id`,`carts`.`quantity` AS `quantity`,`product_box`.`pro_id` AS `pro_id`,`product_box`.`pro_name` AS `pro_name`,`product_box`.`pro_des` AS `pro_des`,`product_box`.`pro_details` AS `pro_details`,`product_box`.`pro_price` AS `pro_price`,`product_box`.`new_price` AS `new_price`,`product_box`.`pro_images` AS `pro_images`,`product_box`.`pro_rate` AS `pro_rate`,`product_box`.`new` AS `new`,`product_box`.`offer` AS `offer`,`product_box`.`pro_status` AS `pro_status`,`product_box`.`category_id` AS `category_id`,`product_box`.`cat_name` AS `cat_name`,`product_box`.`cat_header` AS `cat_header`,`product_box`.`cat_status` AS `cat_status` from (`carts` join `product_box` on(`carts`.`product_id` = `product_box`.`pro_id`)) ;
 
 -- --------------------------------------------------------
 
@@ -535,7 +540,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `cart_total_price`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `cart_total_price`  AS  select `cart_box`.`user_id` AS `user_id`,sum(`cart_box`.`new_price` * `cart_box`.`quantity`) AS `total_price` from `cart_box` group by `cart_box`.`user_id` ;
+CREATE VIEW `cart_total_price`  AS  select `cart_box`.`user_id` AS `user_id`,sum(`cart_box`.`new_price` * `cart_box`.`quantity`) AS `total_price` from `cart_box` group by `cart_box`.`user_id` ;
 
 -- --------------------------------------------------------
 
@@ -544,7 +549,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `order_box`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `order_box`  AS  select `orders`.`id` AS `order_id`,`orders`.`total_price` AS `total_price`,`orders`.`if_not_availble` AS `if_not_availble`,`orders`.`destroy_mode` AS `destroy_mode`,`orders`.`date` AS `date`,`orders`.`user_id` AS `user_id`,`users`.`name` AS `name`,`users`.`email` AS `email`,`orders`.`address_id` AS `address_id`,`addresses`.`compony_name` AS `compony_name`,`addresses`.`governorate` AS `governorate`,`addresses`.`block_number` AS `block_number`,`addresses`.`street_address` AS `street_address`,`addresses`.`avenue` AS `avenue`,`addresses`.`building_number` AS `building_number`,`addresses`.`floor` AS `floor`,`addresses`.`phone` AS `phone`,`addresses`.`additional_info` AS `additional_info` from ((`orders` join `users` on(`users`.`id` = `orders`.`user_id`)) join `addresses` on(`addresses`.`id` = `orders`.`address_id`)) ;
+CREATE VIEW `order_box`  AS  select `orders`.`id` AS `order_id`,`orders`.`total_price` AS `total_price`,`orders`.`if_not_availble` AS `if_not_availble`,`orders`.`destroy_mode` AS `destroy_mode`,`orders`.`date` AS `date`,`orders`.`user_id` AS `user_id`,`users`.`name` AS `name`,`users`.`email` AS `email`,`orders`.`address_id` AS `address_id`,`addresses`.`compony_name` AS `compony_name`,`addresses`.`governorate` AS `governorate`,`addresses`.`block_number` AS `block_number`,`addresses`.`street_address` AS `street_address`,`addresses`.`avenue` AS `avenue`,`addresses`.`building_number` AS `building_number`,`addresses`.`floor` AS `floor`,`addresses`.`phone` AS `phone`,`addresses`.`additional_info` AS `additional_info` from ((`orders` join `users` on(`users`.`id` = `orders`.`user_id`)) join `addresses` on(`addresses`.`id` = `orders`.`address_id`)) ;
 
 -- --------------------------------------------------------
 
@@ -553,7 +558,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `product_box`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `product_box`  AS  select `products`.`id` AS `pro_id`,`products`.`pro_name` AS `pro_name`,`products`.`pro_des` AS `pro_des`,`products`.`pro_details` AS `pro_details`,`products`.`price` AS `pro_price`,`products`.`new_price` AS `new_price`,`products`.`images` AS `pro_images`,`products`.`rate` AS `pro_rate`,`products`.`new` AS `new`,`products`.`offer` AS `offer`,`products`.`status` AS `pro_status`,`products`.`category_id` AS `category_id`,`categories`.`cat_name` AS `cat_name`,`categories`.`cat_header` AS `cat_header`,`categories`.`status` AS `cat_status` from (`products` join `categories` on(`products`.`category_id` = `categories`.`id`)) ;
+CREATE VIEW `product_box`  AS  select `products`.`id` AS `pro_id`,`products`.`pro_name` AS `pro_name`,`products`.`pro_des` AS `pro_des`,`products`.`pro_details` AS `pro_details`,`products`.`price` AS `pro_price`,`products`.`new_price` AS `new_price`,`products`.`images` AS `pro_images`,`products`.`rate` AS `pro_rate`,`products`.`new` AS `new`,`products`.`offer` AS `offer`,`products`.`status` AS `pro_status`,`products`.`category_id` AS `category_id`,`categories`.`cat_name` AS `cat_name`,`categories`.`cat_header` AS `cat_header`,`categories`.`status` AS `cat_status` from (`products` join `categories` on(`products`.`category_id` = `categories`.`id`)) ;
 
 -- --------------------------------------------------------
 
@@ -562,7 +567,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `review_box`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `review_box`  AS  select `reviews`.`id` AS `re_id`,`reviews`.`re_des` AS `re_des`,`reviews`.`re_rate` AS `re_rate`,`reviews`.`product_id` AS `product_id`,`reviews`.`user_id` AS `user_id`,`users`.`name` AS `name`,`users`.`email` AS `email` from (`reviews` join `users` on(`reviews`.`user_id` = `users`.`id`)) ;
+CREATE VIEW `review_box`  AS  select `reviews`.`id` AS `re_id`,`reviews`.`re_des` AS `re_des`,`reviews`.`re_rate` AS `re_rate`,`reviews`.`product_id` AS `product_id`,`reviews`.`user_id` AS `user_id`,`users`.`name` AS `name`,`users`.`email` AS `email` from (`reviews` join `users` on(`reviews`.`user_id` = `users`.`id`)) ;
 
 -- --------------------------------------------------------
 
@@ -571,7 +576,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `user_purchases`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `user_purchases`  AS  select `orders`.`user_id` AS `user_id`,`order_products`.`product_id` AS `product_id` from (`orders` join `order_products` on(`orders`.`id` = `order_products`.`order_id`)) ;
+CREATE VIEW `user_purchases`  AS  select `orders`.`user_id` AS `user_id`,`order_products`.`product_id` AS `product_id` from (`orders` join `order_products` on(`orders`.`id` = `order_products`.`order_id`)) ;
 
 --
 -- Indexes for dumped tables
@@ -683,13 +688,13 @@ ALTER TABLE `available_times`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
@@ -725,13 +730,13 @@ ALTER TABLE `order_products`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=230;
 
 --
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `users`
